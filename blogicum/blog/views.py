@@ -55,7 +55,9 @@ def index(request):
 def post_detail(request, id_post):
     if id_post not in dict_posts_id:
         raise Http404
-    return render(request, 'blog/detail.html', {'post': dict_posts_id[id_post]})
+    return render(request, 'blog/detail.html',
+                  context={'post': dict_posts_id[id_post]}
+                  )
 
 
 def category_posts(request, category_slug):
